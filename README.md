@@ -9,7 +9,7 @@ https://media.athensvoice.gr/forum-empathy
 
 - HTML5
 - CSS3
-- JavaScript (Vanilla)
+- JavaScript
 
 ## 📱 Responsive Design
 
