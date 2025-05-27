@@ -1,0 +1,831 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+
+<head>
+  <script src="../assets/js/color-modes.js"></script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Ενσυναίσθηση</title>
+  <link rel="icon" href='/assets/empathy.png' type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/headers/"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    .swiper {
+      width: 80%;
+      height: 75%;
+      position: absolute;
+      top: 12%;
+    }
+
+    .swiper-slide {
+      font-size: 18px;
+      height: auto;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 768px) {
+      .swiper {
+        position: relative;
+        width: 100%;
+        height: 250px;
+      }
+    }
+  </style>
+
+
+  <!-- Custom styles for this template -->
+  <link href="/headers/headers.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+</head>
+
+<body>
+  <div class="header-containerr">
+    <!-- <h1 class="visually-hidden">Headers examples</h1> -->
+
+    <div class="container">
+      <nav class="navbar navbar-expand-md">
+        <header class="d-flex flex-wrap justify-content-center py-3">
+          <a href="https://www.athensvoice.gr/"
+            class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
+            aria-label="athens voice">
+            <svg width="160" height="32" viewBox="0 0 204 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M13.2539 1.67432H23.7416L36.732 37.7004H27.7063L25.3027 30.4373H11.3211L8.92371 37.7004H0.312988L13.2539 1.67432ZM23.0602 23.524L18.3088 9.04603L13.5574 23.524H23.0602Z"
+                fill="white"></path>
+              <path d="M29.2178 9.09429V1.67432H59.6341V9.09429H48.7313V37.7004H40.1763V9.09429H29.2178Z" fill="white">
+              </path>
+              <path
+                d="M71.7757 1.67432V15.543H84.6608V1.67432H93.2158V37.7004H84.6608V22.969H71.7757V37.7064H63.2207V1.67432H71.7757Z"
+                fill="white"></path>
+              <path
+                d="M122.895 1.67432V9.04H105.259V15.8989H122.895V22.9087H105.259V30.3287H122.895V37.6944H96.8091V1.67432H122.895Z"
+                fill="white"></path>
+              <path
+                d="M158.038 1.67432V37.7004H148.331L134.814 13.2085V37.7004H126.463V1.67432H136.951L149.681 24.7426V1.67432H158.038Z"
+                fill="white"></path>
+              <path
+                d="M160.559 26.1661H169.114C169.374 29.671 171.933 31.5531 176.213 31.5531C180.599 31.5531 182.631 29.6227 182.631 27.2821C182.631 25.6051 181.324 24.1331 178.245 23.7229L172.924 23.0654C166.035 22.2027 161.34 18.8487 161.34 12.3939C161.34 6.30108 167.082 0.914062 176.058 0.914062C184.979 0.914062 190.511 5.74006 190.876 12.4482H182.266C182.216 9.70341 180.128 7.72475 176.003 7.72475C171.982 7.72475 169.795 9.65515 169.795 11.7907C169.795 13.7211 171.257 14.9396 174.126 15.2955L178.927 15.9048C185.759 16.7675 191.136 19.9164 191.136 26.6789C191.136 33.942 184.508 38.4664 175.953 38.4664C167.082 38.4664 160.77 33.4835 160.559 26.1661Z"
+                fill="white"></path>
+              <path
+                d="M203.532 9.88455L194.891 6.1263V5.43256L203.539 1.67432V4.11748L199.369 5.78245L203.539 7.43535V9.88455H203.532Z"
+                fill="white"></path>
+              <path d="M195.045 21.7322V19.5786H203.538V21.7322H195.045Z" fill="white"></path>
+              <path
+                d="M203.092 29.3452C202.696 30.0027 202.132 30.5215 201.414 30.9016L200.268 29.2607C201.191 28.7238 201.655 28.006 201.655 27.1071C201.655 26.4496 201.438 25.9066 200.998 25.4844C200.559 25.0621 199.989 24.851 199.276 24.851C198.564 24.851 197.994 25.0621 197.567 25.4783C197.139 25.8946 196.922 26.4375 196.922 27.1071C196.922 28.012 197.387 28.7299 198.31 29.2607L197.164 30.9016C196.445 30.5275 195.882 30.0087 195.485 29.3452C195.089 28.6876 194.884 27.9396 194.884 27.1011C194.884 25.8463 195.306 24.7906 196.148 23.934C196.99 23.0714 198.037 22.6431 199.289 22.6431C200.534 22.6431 201.575 23.0774 202.423 23.9401C203.266 24.8027 203.687 25.8644 203.687 27.1192C203.687 27.9456 203.489 28.6876 203.092 29.3452Z"
+                fill="white"></path>
+              <path
+                d="M201.544 37.5494V33.9661H200.373V36.5239H198.521V33.9661H197.04V37.7002H195.045V31.8125H203.538V37.5494H201.544Z"
+                fill="white"></path>
+              <path
+                d="M202.417 17.3586C201.575 18.2273 200.528 18.6616 199.289 18.6616C198.05 18.6616 197.003 18.2273 196.161 17.3586C195.318 16.4899 194.897 15.4343 194.897 14.1916C194.897 12.9489 195.318 11.8932 196.161 11.0366C197.003 10.1739 198.05 9.74561 199.289 9.74561C200.528 9.74561 201.575 10.1739 202.417 11.0366C203.26 11.8992 203.681 12.9489 203.681 14.1916C203.687 15.4343 203.26 16.4899 202.417 17.3586ZM200.999 12.5748C200.559 12.1586 199.989 11.9475 199.289 11.9475C198.577 11.9475 198.007 12.1586 197.573 12.5748C197.139 12.9911 196.923 13.534 196.923 14.2036C196.923 14.8551 197.139 15.392 197.573 15.8203C198.007 16.2426 198.577 16.4598 199.289 16.4598C199.995 16.4598 200.565 16.2486 200.999 15.8203C201.432 15.392 201.655 14.8551 201.655 14.2036C201.655 13.534 201.432 12.9911 200.999 12.5748Z"
+                fill="white"></path>
+            </svg>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Collapsible Menu (Burger Menu on Mobile, Full Menu on Larger Screens) -->
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a href="#ensinaisthisi" class="nav-link text-light">ΕΝΣΥΝΑΙΣΘΗΣΗ</a></li>
+              <li class="nav-item"><a href="#speakers" class="nav-link text-light">ΟΜΙΛΗΤΕΣ</a></li>
+              <li class="nav-item"><a href="#atzenta" class="nav-link text-light">ΑΤΖΕΝΤΑ</a></li>
+              <li class="nav-item"><a href="#topothesia" class="nav-link text-light">ΤΟΠΟΘΕΣΙΑ</a></li>
+              <li class="nav-item"><a href="#sponsors" class="nav-link text-light">ΧΟΡΗΓΟΙ</a></li>
+              <li class="nav-item"><a target="_blank"
+                  href="https://www.more.com/conference/ensynaisthisi-mia-magiki-morfi-epikoinonias/"
+                  class="nav-link text-light">ΚΛΕΙΣΤΕ ΘΕΣΗ</a></li>
+            </ul>
+          </div>
+        </header>
+      </nav>
+    </div>
+  </div>
+  <div class="hero-container">
+    <img class="image-forum anim right" src="/assets/forum.png" alt="">
+    <img class="image anim left" src="/assets/empathy.png" alt="">
+    <svg class="centered-logo anim" width="160" height="32" viewBox="0 0 204 39" fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M13.2539 1.67432H23.7416L36.732 37.7004H27.7063L25.3027 30.4373H11.3211L8.92371 37.7004H0.312988L13.2539 1.67432ZM23.0602 23.524L18.3088 9.04603L13.5574 23.524H23.0602Z"
+        fill="white"></path>
+      <path d="M29.2178 9.09429V1.67432H59.6341V9.09429H48.7313V37.7004H40.1763V9.09429H29.2178Z" fill="white"></path>
+      <path
+        d="M71.7757 1.67432V15.543H84.6608V1.67432H93.2158V37.7004H84.6608V22.969H71.7757V37.7064H63.2207V1.67432H71.7757Z"
+        fill="white"></path>
+      <path
+        d="M122.895 1.67432V9.04H105.259V15.8989H122.895V22.9087H105.259V30.3287H122.895V37.6944H96.8091V1.67432H122.895Z"
+        fill="white"></path>
+      <path
+        d="M158.038 1.67432V37.7004H148.331L134.814 13.2085V37.7004H126.463V1.67432H136.951L149.681 24.7426V1.67432H158.038Z"
+        fill="white"></path>
+      <path
+        d="M160.559 26.1661H169.114C169.374 29.671 171.933 31.5531 176.213 31.5531C180.599 31.5531 182.631 29.6227 182.631 27.2821C182.631 25.6051 181.324 24.1331 178.245 23.7229L172.924 23.0654C166.035 22.2027 161.34 18.8487 161.34 12.3939C161.34 6.30108 167.082 0.914062 176.058 0.914062C184.979 0.914062 190.511 5.74006 190.876 12.4482H182.266C182.216 9.70341 180.128 7.72475 176.003 7.72475C171.982 7.72475 169.795 9.65515 169.795 11.7907C169.795 13.7211 171.257 14.9396 174.126 15.2955L178.927 15.9048C185.759 16.7675 191.136 19.9164 191.136 26.6789C191.136 33.942 184.508 38.4664 175.953 38.4664C167.082 38.4664 160.77 33.4835 160.559 26.1661Z"
+        fill="white"></path>
+      <path
+        d="M203.532 9.88455L194.891 6.1263V5.43256L203.539 1.67432V4.11748L199.369 5.78245L203.539 7.43535V9.88455H203.532Z"
+        fill="white"></path>
+      <path d="M195.045 21.7322V19.5786H203.538V21.7322H195.045Z" fill="white"></path>
+      <path
+        d="M203.092 29.3452C202.696 30.0027 202.132 30.5215 201.414 30.9016L200.268 29.2607C201.191 28.7238 201.655 28.006 201.655 27.1071C201.655 26.4496 201.438 25.9066 200.998 25.4844C200.559 25.0621 199.989 24.851 199.276 24.851C198.564 24.851 197.994 25.0621 197.567 25.4783C197.139 25.8946 196.922 26.4375 196.922 27.1071C196.922 28.012 197.387 28.7299 198.31 29.2607L197.164 30.9016C196.445 30.5275 195.882 30.0087 195.485 29.3452C195.089 28.6876 194.884 27.9396 194.884 27.1011C194.884 25.8463 195.306 24.7906 196.148 23.934C196.99 23.0714 198.037 22.6431 199.289 22.6431C200.534 22.6431 201.575 23.0774 202.423 23.9401C203.266 24.8027 203.687 25.8644 203.687 27.1192C203.687 27.9456 203.489 28.6876 203.092 29.3452Z"
+        fill="white"></path>
+      <path
+        d="M201.544 37.5494V33.9661H200.373V36.5239H198.521V33.9661H197.04V37.7002H195.045V31.8125H203.538V37.5494H201.544Z"
+        fill="white"></path>
+      <path
+        d="M202.417 17.3586C201.575 18.2273 200.528 18.6616 199.289 18.6616C198.05 18.6616 197.003 18.2273 196.161 17.3586C195.318 16.4899 194.897 15.4343 194.897 14.1916C194.897 12.9489 195.318 11.8932 196.161 11.0366C197.003 10.1739 198.05 9.74561 199.289 9.74561C200.528 9.74561 201.575 10.1739 202.417 11.0366C203.26 11.8992 203.681 12.9489 203.681 14.1916C203.687 15.4343 203.26 16.4899 202.417 17.3586ZM200.999 12.5748C200.559 12.1586 199.989 11.9475 199.289 11.9475C198.577 11.9475 198.007 12.1586 197.573 12.5748C197.139 12.9911 196.923 13.534 196.923 14.2036C196.923 14.8551 197.139 15.392 197.573 15.8203C198.007 16.2426 198.577 16.4598 199.289 16.4598C199.995 16.4598 200.565 16.2486 200.999 15.8203C201.432 15.392 201.655 14.8551 201.655 14.2036C201.655 13.534 201.432 12.9911 200.999 12.5748Z"
+        fill="white"></path>
+    </svg>
+  </div>
+  <div class="forum-hero-container">
+    <div class="title">
+      <p class="forum-hero-container-p anim" style="color:black;">ΤΕΤΑΡΤΗ 4 ΔΕΚΕΜΒΡΙΟΥ 2024 - ΜΕΓΑΡΟ ΜΟΥΣΙΚΗΣ ΑΘΗΝΩΝ</p>
+    </div>
+  </div>
+  <div class="forum-flex" id='ensinaisthisi'>
+    <h2 class="forumh2">forum</h2>
+    <span class="forump">Η νέα σειρά συζητήσεων και διαλέξεων της Athens Voice </br>Φόρουμ #1 Ενσυναίσθηση</span>
+  </div>
+  <!-- <p class="anim left forumpro"><span style="font-family:'cera-light';">Υπό την αιγίδα της Προέδρου της Δημοκρατίας </span>Κατερίνας Σακελλαροπούλου</p> -->
+  <div class="forum-flex-aretes">
+    <img class="gif-right" src="/assets/gif-test.gif" alt="">
+    <!-- <div class="swiper mySwiper"> -->
+    <!-- <div class="swiper-wrapper">
+        <div class="swiper-slide"> -->
+    <div class="aretes-container">
+      <h2 class="aretes">Οι αρετές του 21ου αιώνα</h2>
+      <p class="anim left textin">H Athens Voice διοργανώνει μία σειρά συζητήσεων με τίτλο «Οι αρετές του 21ου αιώνα».
+        Στο 1ο Φόρουμ θα συζητήσουμε την έννοια της ενσυναίσθησης ως συνεκτικού δεσμού: τη σημασία της στην ηγεσία, στην
+        επιχειρηματικότητα, στην επιστήμη, στην υγεία, στην εκπαίδευση, στα social media, στη διαφορετικότητα, στο πώς
+        αντιλαμβανόμαστε τα ζώα, στις μεταξύ μας σχέσεις.
+
+      <p class="anim left textin" style="margin-top: 1em;">Το συνέδριο, έχοντας στόχο την επικοινωνία, τον διάλογο, και
+        την ανταλλαγή ερεθισμάτων, θα είναι ανοιχτό προς τον καθένα. Μια πρόσκληση αλλά και ένα ερώτημα που γίνεται
+        ολοένα και πιο επιτακτικό να μην απουσιάζει από τον δημόσιο διάλογο: Νοιαζόμαστε;
+      </p>
+
+      <p class="anim left textin">
+        Μπορούμε να μπούμε στη θέση του άλλου; </p>
+
+      <p class="anim left textin">
+        Προσωπικότητες με κύρος και κοινωνική απήχηση, με τη συνδρομή δημοσιογράφων και συνεργατών της Athens Voice, θα
+        μοιραστούν με τους παρευρισκόμενους απόψεις, ιδέες, βιώματα και συναισθήματα, σε μια προσπάθεια να μάθουμε τι
+        σημαίνει να συμβιώνουμε με σεβασμό.</p>
+
+      <!-- <p class="anim left textin">
+              Συνδεθείτε με μία κοινότητα που αξιοποιεί την Ενσυναίσθηση για καλό.</p>
+
+            <p class="anim left textin">
+              Ενώνοντας τις δυνάμεις μας με ένα γεγονός που τιμά την κοινωνική αλλαγή και την προοδευτική σκέψη, δεν
+              αποκτά
+              απλώς έκθεση, αλλά γίνεται μέρος της λύσης!
+            </p> -->
+      <!-- </div> -->
+      <!-- </div>
+      </div> -->
+      <!-- <div class="swiper-scrollbar swiper-scrollbar-vertical">
+        <div class="swiper-scrollbar-drag"
+          style="height: 48.468px; transform: translate3d(0px, 160.417px, 0px); transition-duration: 0ms;"></div>
+      </div> -->
+    </div>
+  </div>
+  <h2 class="anim left speakers" id='speakers'>Ομιλητές</h2>
+  <div class="speakers-container">
+    <div class="cards-container">
+      <div class="card featured-card">
+        <img src="/assets/sakelaropoulou.jpg" class="card-img-top" alt="Featured Speaker">
+        <div class="card-body">
+          <h5 class="card-title">Κατερίνα Σακελλαροπούλου</h5>
+          <p class="card-text anim left job">Πρόεδρος της Δημοκρατίας</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/krimizis.png" class="card-img-top" alt="Σταμάτης Κριμιζής">
+        <div class="card-body">
+          <h5 class="card-title">Σταμάτης Κριμιζής</h5>
+          <p class="card-text anim left job">Επιστήμονας
+            του Διαστήματος, Πρόεδρος της Ακαδημίας Αθηνών</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/efthimiou.jpg" class="card-img-top" alt="Μαρία Ευθυμίου">
+        <div class="card-body">
+          <h5 class="card-title">Μαρία Ευθυμίου</h5>
+          <p class="card-text anim left job">Ιστορικός</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/kalmpari.jpg" class="card-img-top" alt="Elisavet Kalmpari">
+        <div class="card-body">
+          <h5 class="card-title">Ελισάβετ Κάλμπαρη</h5>
+          <p class="card-text anim left job">Νευροψυχολόγος, ιδρύτρια της Self Balance</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/theodoropoulos.jpg" class="card-img-top" alt="Σπύρος Θεοδωρόπουλος">
+        <div class="card-body">
+          <h5 class="card-title">Σπύρος Θεοδωρόπουλος</h5>
+          <p class="card-text anim left job">Πρόεδρος του ΣΕΒ</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/marika-lamprou.jpg" class="card-img-top" alt="Μαρίκα Λάμπρου">
+        <div class="card-body">
+          <h5 class="card-title">Μαρίκα Λάμπρου</h5>
+          <p class="card-text anim left job">Σύμβουλος επιχειρήσεων, συγγραφεας</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/panayis-panagiotopoulos.jpg" class="card-img-top" alt="Παναγής Παναγιωτόπουλος">
+        <div class="card-body">
+          <h5 class="card-title">Παναγής Παναγιωτόπουλος</h5>
+          <p class="card-text anim left job">Αναπληρωτής Καθηγητής Κοινωνιολογίας στο Τμήμα Πολιτικής Επιστήμης
+            και Δημόσιας Διοίκησης στο ΕΚΠΑ</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/romanos-gerodimos.jpg" class="card-img-top" alt="Ρωμανός Γεροδήμος">
+        <div class="card-body">
+          <h5 class="card-title">Ρωμανός Γεροδήμος</h5>
+          <p class="card-text anim left job">Καθηγητής Διεθνούς Πολιτικής και Δημοσιογραφίας στο Πανεπιστήμιο του
+            Bournemouth</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/vasso-kindi.jpg" class="card-img-top" alt="Βάσω Κιντή">
+        <div class="card-body">
+          <h5 class="card-title">Βάσω Κιντή</h5>
+          <p class="card-text anim left job">Καθηγήτρια Φιλοσοφίας στο τμήμα Ιστορίας και Φιλοσοφίας της Επιστήμης στο
+            ΕΚΠΑ</p>
+        </div>
+      </div>
+
+
+      <div class="card">
+        <img src="/assets/legaki.jpg" class="card-img-top" alt="Μυρτώ Λεγάκη">
+        <div class="card-body">
+          <h5 class="card-title">Μυρτώ Λεγάκη</h5>
+          <p class="card-text anim left job">Ιδρύτρια του One Breath Mindfulness Center</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/karagiannhs128x650-2.jpg" class="card-img-top" alt="Δημήτρης Καραγιάννης">
+        <div class="card-body">
+          <h5 class="card-title">Δημήτρης Καραγιάννης </h5>
+          <p class="card-text anim left job">Παιδοψυχίατρος, ψυχοθεραπευτής, επιστημονικός διευθυντής του
+            Ινστιτούτου «Αντίστιξη»</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/mazaris.jpeg" class="card-img-top" alt="Μάριος Μάζαρης">
+        <div class="card-body">
+          <h5 class="card-title">Μάριος Μάζαρης</h5>
+          <p class="card-text anim left job">Δάσκαλος, συγγραφέας παιδικών βιβλίων</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/sfurikidis.jpg" class="card-img-top" alt="Κωστής Σφυρικίδης">
+        <div class="card-body">
+          <h5 class="card-title">Κωστής Σφυρικίδης</h5>
+          <p class="card-text anim left job">Καθηγητής Αγωγής της Φωνής, συνιδρυτής Storymentor</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="/assets/kandaraki (1).jpeg" class="card-img-top" alt="Άννα Κανδαρακη">
+        <div class="card-body">
+          <h5 class="card-title">Άννα Κανδαρακη</h5>
+          <p class="card-text anim left job">Kλινική ψυχολόγος, ψυχοθεραπεύτρια</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/yakou (2).jpg" class="card-img-top" alt="Υακου">
+        <div class="card-body">
+          <h5 class="card-title">Υακου</h5>
+          <p class="card-text anim left job">Εικαστικός, street artist</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/nefeli.jpg" class="card-img-top" alt="Νεφέλη Μέγκ">
+        <div class="card-body">
+          <h5 class="card-title">Νεφέλη Μέγκ</h5>
+          <p class="card-text anim left job">Influencer, podcaster</p>
+        </div>
+      </div>
+      <!-- Θέμης Χασιώτης (Director Communications &amp; Sustainability, PAPASTRATOS)
+      Δήμητρα Πετρίδη (Corporate Affairs &amp; Engagement Director, L’ OREAL HELLAS )
+      Δήμητρα Δασκαλάκη (Organisational Development &amp; Communications Director, METRO) -->
+      <div class="card">
+        <img src="/assets/giwrgos-karamixos.jpg" class="card-img-top" alt="Γιώργος Καραμίχος">
+        <div class="card-body">
+          <h5 class="card-title">Γιώργος Καραμίχος</h5>
+          <p class="card-text anim left job">Hθοποιός</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/evi-xatziandreou.jpg" class="card-img-top" alt="Εύη Χατζηανδρέου">
+        <div class="card-body">
+          <h5 class="card-title">Εύη Χατζηανδρέου</h5>
+          <p class="card-text anim left job">Eιδικός Δημόσιας Υγείας και Μακροζωίας</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/savvas-savvopoulos1072.jpg" class="card-img-top" alt="Σάββας Σαββόπουλος">
+        <div class="card-body">
+          <h5 class="card-title">Σάββας Σαββόπουλος</h5>
+          <p class="card-text anim left job">Ψυχίατρος, ψυχαναλυτής</p>
+        </div>
+      </div>
+
+
+      <div class="card">
+        <img src="/assets/erieta.jpg" class="card-img-top" alt="Εριέττα Κούρκουλου">
+        <div class="card-body">
+          <h5 class="card-title">Εριέττα Κούρκουλου - Λάτση</h5>
+          <p class="card-text anim left job">Ιδρύτρια και πρόεδρος του Save a Greek Stray και του A Promise to
+            Animals</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/mpitsani.png" class="card-img-top" alt="Άννα Μπιτσάνη">
+        <div class="card-body">
+          <h5 class="card-title">Άννα Μπιτσάνη</h5>
+          <p class="card-text anim left job">Εθελόντρια ζώων</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="/assets/καραμπατζος.jpg" class="card-img-top" alt="Αντώνης Καραμπατσός">
+        <div class="card-body">
+          <h5 class="card-title">Αντώνης Καραμπατζός</h5>
+          <p class="card-text anim left job">Καθηγητής στη Νομική Σχολή του ΕΚΠΑ</p>
+        </div>
+      </div>
+
+
+      <div class="card">
+        <img src="/assets/malakopoulos.jpeg" class="card-img-top" alt="Στέλιος Μαλακόπουλος">
+        <div class="card-body">
+          <h5 class="card-title">Στέλιος Μαλακόπουλος</h5>
+          <p class="card-text anim left job">Παραολυμπιονίκης</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/gkretsou.jpg" class="card-img-top" alt="Μαρία Ιωάννα Γρέτσου">
+        <div class="card-body">
+          <h5 class="card-title">Ιωάννα Μαρία Γρέτσου</h5>
+          <p class="card-text anim left job">Ψυχολόγος σε παιδιατρικό νοσοκομείο, Πρόεδρος της Σχολής Σκύλων -
+            Οδηγών «Λάρα»</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/diakatou.jpg" class="card-img-top" alt="Στέλλα Διακάτου">
+        <div class="card-body">
+          <h5 class="card-title">Στέλλα Διακάτου</h5>
+          <p class="card-text anim left job">Κοινωνιολόγος, μέλος συμπεριληπτικής ομάδας χορούς Έξις - Inclusive</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/theodorakis.jpg" class="card-img-top" alt="Σταύρος Θεοδωράκης">
+        <div class="card-body">
+          <h5 class="card-title">Σταύρος Θεοδωράκης</h5>
+          <p class="card-text anim left job">Δημοσιογράφος</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/markoulakis.jpg" class="card-img-top" alt="Κωνσταντίνος Μαρκουλάκης">
+        <div class="card-body">
+          <h5 class="card-title">Κωνσταντίνος Μαρκουλάκης</h5>
+          <p class="card-text anim left job">Ηθοποιός, σκηνοθέτης</p>
+        </div>
+      </div>
+      <!-- new -->
+      <div class="card">
+        <img src="/assets/mpouzali.png" class="card-img-top" alt="Βίβιαν Μπουζάλη">
+        <div class="card-body">
+          <h5 class="card-title">Βίβιαν Μπουζάλη</h5>
+          <p class="card-text anim left job">Chief Corporate Affairs & Communication Officer στη METLEN</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/petridi.jpg" class="card-img-top" alt="Δήμητρα Πετρίδη">
+        <div class="card-body">
+          <h5 class="card-title">Δήμητρα Πετρίδη</h5>
+          <p class="card-text anim left job">Corporate Affairs & Engagement Director, L’ OREAL HELLAS</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/daskalaki.jpeg" class="card-img-top" alt="Δήμητρα Δασκαλάκη">
+        <div class="card-body">
+          <h5 class="card-title">Δήμητρα Δασκαλάκη</h5>
+          <p class="card-text anim left job">Organisational Development & Communications Director, METRO</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/xasiwths.jpg" class="card-img-top" alt="Θέμης Χασιώτης">
+        <div class="card-body">
+          <h5 class="card-title">Θέμης Χασιώτης</h5>
+          <p class="card-text anim left job">Director Communications & Sustainability, PAPASTRATOS</p>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+    <img class="purple" style="width: 22%;" src="/assets/purple-gif.gif"
+      alt="">
+
+  </div>
+  <h2 class="anim left speakers" id='speakers'>Συντονίζουν οι:</h2>
+  <div class="speakers-container">
+    <div class="cards-container">
+
+      <div class="card">
+        <img src="/assets/kosmopoulou.png" class="card-img-top" alt="Αγγελική Κοσμοπούλου">
+        <div class="card-body">
+          <h5 class="card-title">Αγγελική Κοσμοπούλου</h5>
+          <p class="card-text anim left job">Σύμβουλος επικοινωνίας, ιδρύτρια του Story Mentor - Ιστορίες που αλλάζουν
+            τον κόσμο</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/psixouli.jpg" class="card-img-top" alt="Ελένη Ψυχούλη">
+        <div class="card-body">
+          <h5 class="card-title">Ελένη Ψυχούλη</h5>
+          <p class="card-text anim left job">Δημοσιογράφος στην Athens Voice</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/provatas.jpg" class="card-img-top" alt="Μάκης Προβατάς">
+        <div class="card-body">
+          <h5 class="card-title">Μάκης Προβατάς</h5>
+          <p class="card-text anim left job">Δημοσιογράφος Athens Voice και ΕΡΤ, συγγραφέας</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/kabosou.png" class="card-img-top" alt="Κατερίνα Καμπόσου">
+        <div class="card-body">
+          <h5 class="card-title">Κατερίνα Καμπόσου</h5>
+          <p class="card-text anim left job">Δημοσιογράφoς στην Athens Voice</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/galanopoulou.jpg" class="card-img-top" alt="Χριστίνα Γαλανοπούλου">
+        <div class="card-body">
+          <h5 class="card-title">Χριστίνα Γαλανοπούλου</h5>
+          <p class="card-text anim left job">Δημοσιογράφoς στην Athens Voice, σύμβουλος διεύθυνσης</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/grous.jpg" class="card-img-top" alt="Δήμητρα Γκρους">
+        <div class="card-body">
+          <h5 class="card-title">Δήμητρα Γκρους</h5>
+          <p class="card-text anim left job">Δημοσιογράφoς στην Athens Voice</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="/assets/glyniadakis.png" class="card-img-top" alt="Κρυστάλλη Γλυνιαδάκη">
+        <div class="card-body">
+          <h5 class="card-title">Κρυστάλλη Γλυνιαδάκη</h5>
+          <p class="card-text anim left job">Ποιήτρια, μεταφράστρια, δημοσιογράφoς στην Athens Voice</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- atzenta -->
+  <h2 class="anim left atzenta" id="atzenta">Ατζέντα</h2>
+  <!-- phase1 -->
+  <div class="flex-container-calendar">
+    <div class="flex-phases-container">
+      <p class="phases anim">Phase 1 - ΠΡΩΙΝΗ</p>
+      <hr>
+      <p class="phase-time anim">12:00 - 14:30</p>
+    </div>
+    <div class="flex-timetable-container timetable1">
+      <p class="timetable anim">11:00 - Προσέλευση </p>
+      <p class="timetable anim">12:00 - Καλοσώρισμα
+      </p>
+      <p class="timeetable anim presi"> Χαιρετισμός της Προέδρου της Δημοκρατίας Κατερίνας Σακελλαροπούλου</p>
+      <!-- <p class="timetable anim">12:10 - Χαιρετισμός της Προέδρου της Δημοκρατίας Κατερίνας Σακελλαροπούλου
+     
+        </p> -->
+      <p class="timetable anim">12:15 - Ιστορία, επιστήμη και ενσυναίσθηση<br><span
+          style="font-family: 'cera-light'; font-style: italic;">Τι μας διδάσκει η πορεία του ανθρώπου
+          πάνω στη γη και η επαφή του με την απεραντοσύνη του
+          Διαστήματος;</span> <span class="light-names"><br> Ο Μάκης Προβατάς συζητάει με τη Μαρία Ευθυμίου (Ιστορικός)
+          και τον
+          Σταμάτη Κριμιζή (Επιστήμονας
+          του Διαστήματος, Πρόεδρος της Ακαδημίας Αθηνών)</span> </p>
+      <p class="timetable anim">12:55 - Ηγεσία και ενσυναίσθηση<br><span
+          style="font-family: 'cera-light'; font-style: italic;">Μια αναγκαία, άρρηκτη σχέση</span> <span
+          class="light-names"><br> Ελισάβετ Κάλμπαρη (Νευροψυχολόγος, ιδρύτρια της Self Balance) <br> Σπύρος
+          Θεοδωρόπουλος
+          (Πρόεδρος του ΣΕΒ) <br> Μαρίκα Λάμπρου (Σύμβουλος επιχειρήσεων, συγγραφέας) <br> Συντονίστρια: Αγγελική
+          Κοσμοπούλου </span></p>
+      <p class="timetable anim">13:30 - Στο επίκεντρο ο άνθρωπος <span class="light-names"><br>Ο Μάκης Προβατάς συζητάει
+          με τη Βίβιαν Μπουζάλη (Chief Corporate Affairs &amp; Communication Officer στη METLEN)</span> </p>
+      <p class="timetable anim">13:50 - Επιχειρηματικότητα με ενσυναίσθηση <span
+          style="font-family: 'cera-light'; font-style: italic;"><br>Πόσο απαραίτητη είναι στον χώρο
+          εργασίας και στην ανάπτυξη μιας επιχείρησης;</span> <span class="light-names"><br>Θέμης Χασιώτης (Director
+          Communications &amp; Sustainability, PAPASTRATOS) <br>
+          Δήμητρα Πετρίδη (Corporate Affairs &amp; Engagement Director, L’ OREAL HELLAS ) <br>
+          Δήμητρα Δασκαλάκη (Organisational Development &amp; Communications Director, METRO) <br> Συντονίστρια:
+          Αγγελική Κοσμοπούλου</span></p>
+
+
+    </div>
+  </div>
+  <!-- phase2 -->
+  <div class="flex-container-calendar phase2">
+    <div class="flex-phases-container">
+      <p class="phases anim">Phase 2 - ΜΕΣΗΜΕΡΙΑΝΗ</p>
+      <hr>
+      <p class="phase-time anim">14:35 - 16:10</p>
+    </div>
+    <div class="flex-timetable-container timetable2">
+      <p class="timetable anim">14:35 - Η ενσυναίσθηση στον κόσμο των παιδιών <br><span
+          style="font-family: 'cera-light'; font-style: italic;">Τι σημαίνει ενσυναίσθηση για ένα
+          παιδί; Διδάσκεται; Τι επίγευση αφήνει; Ή πώς η
+          απουσία της μας επηρεάζει όταν μεγαλώνουμε;</span><span class="light-names"><br>Δημήτρης Καραγιάννης
+          (Παιδοψυχίατρος, ψυχοθεραπευτής, επιστημονικός διευθυντής του
+          Ινστιτούτου «Αντίστιξη»)<br>
+          Μάριος Μάζαρης (Δάσκαλος, συγγραφέας παιδικών βιβλίων)<br>
+          Κωστής Σφυρικίδης (Καθηγητής Αγωγής της Φωνής, συνιδρυτής Storymentor) <br> Συντονίστρια: Ελένη Ψυχούλη</span>
+      </p>
+      <p class="timetable anim">15:05 - Hate speech στα social media και η βία στην πραγματική ζωή <br><span
+          style="font-family: 'cera-light'; font-style: italic;">Πώς
+          διαχειριζόμαστε τη ρητορική μίσους στο απρόσωπο σύμπαν των κοινωνικών
+          δικτύων; Ναρκισισιστική διαταραχή και έλλειψη ενσυναίσθησης: πώς επηρεάζει τις
+          σχέσεις; </span><span class="light-names"><br>Άννα Κανδαράκη (Kλινική ψυχολόγος, ψυχοθεραπεύτρια) <br>
+          Υακου (Εικαστικός, street artist) <br>
+          Νεφέλη Μεγκ (Influencer, podcaster) <br> Συντονίστρια: Κατερίνα Καμπόσου</span></p>
+      <p style="padding-top:50px;" class="timetable anim">15:40 - Lunch break
+        <!-- <span style="color: #ffde59;"> με
+         εκπρόσωπο της PAPASTRATOS</span> -->
+      </p>
+    </div>
+  </div>
+  <!-- phase3 -->
+  <div class="flex-container-calendar phase3">
+    <div class="flex-phases-container">
+      <p class="phases anim">Phase 3 - ΑΠΟΓΕΥΜΑΤΙΝΗ</p>
+      <hr>
+      <p class="phase-time anim">16:15 - 19:45</p>
+    </div>
+    <div class="flex-timetable-container timetable3">
+      <p class="timetable anim">16:15 - Η ενσυναίσθηση ως κοινωνικός δεσμός <br><span
+          style="font-family: 'cera-light'; font-style: italic;">Μπορεί να παρεξηγηθεί σαν λέξη; Τι
+          ακριβώς σημαίνει; Πώς μπορεί να λειτουργήσει
+          υποστηρικτικά στις ανθρώπινες σχέσεις;</span><span class="light-names"><br>Παναγής Παναγιωτόπουλος
+          (Αναπληρωτής
+          Καθηγητής Κοινωνιολογίας στο Τμήμα Πολιτικής Επιστήμης
+          και Δημόσιας Διοίκησης στο ΕΚΠΑ) <br>
+          Ρωμανός Γεροδήμος (Καθηγητής Διεθνούς Πολιτικής και Δημοσιογραφίας στο Πανεπιστήμιο του
+          Bournemouth) <br>
+          Βάσω Κιντή (Καθηγήτρια Φιλοσοφίας στο τμήμα Ιστορίας και Φιλοσοφίας της Επιστήμης στο ΕΚΠΑ) <br> Συντονίστρια:
+          Αγγελική Κοσμοπούλου</span> </p>
+
+      <p class="timetable anim">16:55 - Ενσυναίσθηση και Υγεία <br><span
+          style="font-family: 'cera-light'; font-style: italic;">Μπορεί, και κυρίως πρέπει, ο γιατρός να συναισθάνεται
+          την πάλη του ασθενούς; Πώς
+          στεκόμαστε δίπλα στους ανθρώπους που αρρωσταίνουν; Μαρτυρίες και ιατρική εμπειρία </span><span
+          class="light-names"><br>
+          Γιώργος Καραμίχος (Ηθοποιός) <br>
+          Εύη Χατζηανδρέου (Ειδικός Δημόσιας Υγείας και Μακροζωίας) <br>Σάββας Σαββόπουλος (Ψυχίατρος, ψυχαναλυτής)
+          <br>Συντονίστρια: Χριστίνα Γαλανοπούλου</span>
+      </p>
+      <p class="timetable anim">17:30 - Κοιτάζοντας τα ζώα στα μάτια <br><span
+          style="font-family: 'cera-light'; font-style: italic;"> Δεν έχουν φωνή, δεν συνειδητοποιούμε πώς
+          νιώθουν, δεν γνωρίζουμε τι συμβαίνει. Μήπως για
+          αυτό δεν νοιαζόμαστε;</span><span class="light-names"> <br>Εριέττα Κούρκουλου - Λάτση (Ιδρύτρια και πρόεδρος
+          των Save a
+          Greek Stray και A Promise to
+          Animals) <br>
+          Άννα Μπιτσάνη (Εθελόντρια) <br>
+          Αντώνης Καραμπατζός (Καθηγητής στη Νομική Σχολή του ΕΚΠΑ) <br> Συντονίστρια: Δήμητρα Γκρους</span></p>
+      <p class="timetable anim">18:05 - Έλα στη θέση τους <br><span
+          style="font-family: 'cera-light'; font-style: italic;">Ορθή γλώσσα, ορθό συναίσθημα, συμπεριφορές με σεβασμό
+          απέναντι στα άτομα με αναπηρία</span><br> <span class="light-names">Στέλιος Μαλακόπουλος (Παραολυμπιονίκης)
+          <br>
+          Ιωάννα Μαρία Γκέρτσου (Ψυχολόγος σε παιδιατρικό νοσοκομείο, Πρόεδρος της Σχολής Σκύλων -
+          Οδηγών «Λάρα» ) <br>
+          Στέλλα Διακάτου (Κοινωνιολόγος, μέλος συμπεριληπτικής ομάδας χορού Έξις - Inclusive) <br> Συντονίστρια:
+          Κρυστάλλη Γλυνιαδάκη</span>
+      </p>
+      <p class="timetable anim">19:15 - Η ενσυναίσθηση στην τηλεόραση και στο θέατρο <br><span
+          style="font-family: 'cera-light'; font-style: italic;">Διευρύνοντας την εμπειρία μας
+          και τη συνείδησή μας μέσα από ιστορίες</span><span class="light-names"><br>Συζητούν ο Σταύρος Θεοδωράκης με
+          τον
+          Κωνσταντίνο Μαρκουλάκη</span></p>
+      <p style="padding-top:50px;" class="timetable anim">Θα ακολουθήσει cocktail</p>
+    </div>
+  </div>
+
+
+  <h2 class="anim left speakers" id="topothesia">Τοποθεσία</h2>
+  <div class="location-container">
+    <div class="enjoy">
+      <p class="anim left enjoy-concert">Μέγαρο Μουσικής Αθηνών - Athens Concert Hall <br><span
+          style="font-family: 'cera-light';">Βασ.Σοφίας, Petrou Kokkali &, Athina 115 21</span></p>
+      <!-- <p class="anim left enjoy-fullday">Enjoy a full day of programming in this striking venue, located in the heart of Athens</p> -->
+      <img class="circle-img" src="/assets/circle.png" alt="">
+    </div>
+    <div id="map"></div>
+  </div>
+
+
+
+  <h2 class="anim left sponsors" id="sponsors">Partnerships</h2>
+  <img class="metlen-sponsor" src="/assets/metlen-logo.png" alt="Metlen">
+  <div class="lil-sponsors">
+    <img class="loreal-sponsor" src="/assets/loreal-hellas.png" alt="Loreal Hellas">
+    <img class="papastratos-sponsor" src="/assets/papastratos.png" alt="Papastratos">
+  </div>
+  <!-- <img class="orange-image" src="/assets/orangephoto.png" alt=""> -->
+  <div class="supporters-container">
+    <span class="anim left support ">Supporters</span>
+    <div class="moleskine-jysk">
+      <img src="/assets/moleskine-logo.png" alt="moleskine" class="moleskine">
+      <img src="/assets/jysk-logo.png" alt="jysk" class="jysk">
+      <img src="/assets/skinos-glaros.png" alt="skinos-logo" class="skinos">
+    </div>
+  </div>
+
+  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+    integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+  <script>
+
+    var $document = $(document);
+    var $window = $(window);
+
+
+    // Fixed header
+
+    const header = $('.header');
+
+    const fixedHeader = () => {
+      let scrollTop = $window.scrollTop();
+
+      if (scrollTop >= 50) {
+        header.addClass('fixed');
+      } else {
+        header.removeClass('fixed');
+      }
+    };
+
+    // Anchor
+
+    const htmlBody = $('html, body');
+    const anchor = $('a[href^="#"]');
+    const headerHeight = $('.header').height();
+
+    // anchor.on('click', e => {
+    //     const self = $(e.currentTarget);
+    //     const target = self.attr('href');
+
+    //     htmlBody.animate({
+    //         scrollTop: $(target).offset().top - headerHeight
+    //     }, 1000);
+
+    //     return false;
+    // });
+
+    // Animation
+
+    var windowHeight = $window.height();
+    var documentHeight = $document.height();
+    const anim = $('.anim');
+
+    const animation = () => {
+      let scrollTop = $window.scrollTop();
+
+      anim.each((i, e) => {
+        const self = $(e);
+        let elementTop = self.offset().top;
+        let scrollBottom = scrollTop + .85 * windowHeight;
+
+        if (elementTop < scrollBottom) {
+          self.addClass('visible');
+        }
+      });
+
+      if (scrollTop + windowHeight > documentHeight - 2) {
+        anim.addClass('visible');
+      }
+    };
+
+
+    // Item hover
+
+    var itemLInk = $('.item a');
+
+    itemLInk.on('mouseenter mouseleave', e => {
+      const type = e.type;
+      var item = $(e.currentTarget).closest('.item');
+
+      if (type == 'mouseenter') {
+        item.addClass('hover');
+      } else if (type == 'mouseleave') {
+        item.removeClass('hover');
+      }
+    });
+
+
+    // Share
+
+    // const facebook = $('.facebook');
+    // const twitter = $('.x');
+    // const size = 600;
+
+    // facebook.on('click', e => {
+    // 	window.open(`https://www.facebook.com/sharer/sharer.php?u=${document.URL}`, 'pop', `top=${((window.height / 2) - (size / 2))}, left=${((window.width / 2) - (size / 2))}, width=${size}, height=${size}, scrollbars=no`);
+
+    // 	return false;
+    // });
+    // twitter.on('click', e => {
+    // 	window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent($('meta[property="og:title"]').attr('content'))} - ${encodeURIComponent($('meta[property="og:description"]').attr('content'))} ${encodeURIComponent('|')} ${encodeURIComponent($('meta[property="og:site_name"]').attr('content'))}+${window.location.href}`, 'pop', `top=${((window.height / 2) - (size / 2))}, left=${((window.width / 2) - (size / 2))}, width=${size}, height=${size}, scrollbars=no`);
+
+    // 	return false;
+    // });
+
+
+    // Initialization
+
+    const init = () => {
+      fixedHeader();
+      animation();
+    };
+
+    init();
+
+    // Scroll
+
+    $window.on('DOMMouseScroll scroll', () => {
+      fixedHeader();
+      animation();
+    });
+
+    // Resize
+
+    $window.on('resize', () => {
+      fixedHeader();
+      animation();
+    });
+
+  </script>
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      direction: "vertical",
+      slidesPerView: "auto",
+      freeMode: true,
+      scrollbar: {
+        el: ".swiper-scrollbar",
+      },
+      mousewheel: true,
+    });
+  </script>
+  <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+    integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <script>    var map = L.map('map').setView([37.981029, 23.754170], 15);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    L.marker([37.981029, 23.754170]).addTo(map)
+      .bindPopup('<a style="text-decoration:none; color:purple;" target="_blank" href="https://www.google.com/maps/dir//Athens+Concert+Hall,+%CE%92%CE%B1%CF%83%CE%B9%CE%BB%CE%AF%CF%83%CF%83%CE%B7%CF%82+%CE%A3%CE%BF%CF%86%CE%AF%CE%B1%CF%82,+Petrou+Kokkali+%26,+Athina/@37.9844202,23.7377926,15z/data=!4m9!4m8!1m0!1m5!1m1!1s0x14a1bd5100ae96b3:0x2efa440dcf5a2ce7!2m2!1d23.7542267!2d37.9811327!3e0?entry=ttu&g_ep=EgoyMDI0MTEwNi4wIKXMDSoASAFQAw%3D%3D">Οδηγίες για το Μέγαρο Μουσικής Αθηνών</a>')
+      .openPopup('<a style="text-decoration:none; color:purple;" target="_blank" href="https://www.google.com/maps/dir//Athens+Concert+Hall,+%CE%92%CE%B1%CF%83%CE%B9%CE%BB%CE%AF%CF%83%CF%83%CE%B7%CF%82+%CE%A3%CE%BF%CF%86%CE%AF%CE%B1%CF%82,+Petrou+Kokkali+%26,+Athina/@37.9844202,23.7377926,15z/data=!4m9!4m8!1m0!1m5!1m1!1s0x14a1bd5100ae96b3:0x2efa440dcf5a2ce7!2m2!1d23.7542267!2d37.9811327!3e0?entry=ttu&g_ep=EgoyMDI0MTEwNi4wIKXMDSoASAFQAw%3D%3D">Directions</a>');
+  </script>
+
+</body>
+
+</html>
